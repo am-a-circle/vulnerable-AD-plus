@@ -154,7 +154,10 @@ function VulnAD-Kerberoasting {
 				$password = ([System.Web.Security.Membership]::GeneratePassword(7,2))
             }
             Try { New-ADUser -Name $svc -SamAccountName $svc -ServicePrincipalNames "$svc/$spn.$Global:Domain" -AccountPassword (ConvertTo-SecureString $password -AsPlainText -Force) -PassThru | Enable-ADAccount } Catch {}
+			$randomgroup = (VulnAD-GetRandom -InputList $Global:MidGroups)
+			Add-ADGroupMember -Identity $randomgroup -Members $svc
 			Write-Info "Creating $svc services account"
+			Write-Info "$svc in $randomgroup"
         }
     }
 }
