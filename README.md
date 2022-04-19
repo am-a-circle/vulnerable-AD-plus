@@ -40,3 +40,5 @@ Install-ADDSForest -CreateDnsDelegation:$false -DatabasePath "C:\\Windows\\NTDS"
 IEX((new-object net.webclient).downloadstring("https://raw.githubusercontent.com/WaterExecution/vulnerable-AD-plus/master/vulnadplus.ps1"));
 Invoke-VulnAD -UsersLimit 100 -DomainName "change.me"
 ```
+
+Mix of https://github.com/mohinparamasivam/vulnerable-AD-plus + https://github.com/WaterExecution/vulnerable-AD-plus
