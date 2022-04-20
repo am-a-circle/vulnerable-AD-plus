@@ -229,12 +229,9 @@ function VulnAD-DCSync {
 		
 		DSACLS "$DefaultNamingContext" /G "$($UserPrincipal):CA;Replicating Directory Changes In Filtered Set" | Out-Null
 		DSACLS "$ConfigurationNamingContext" /G "$($UserPrincipal):CA;Replicating Directory Changes In Filtered Set" | Out-Null
-		$randomgroup = (VulnAD-GetRandom -InputList $Global:Groups)
-		Add-ADGroupMember -Identity $randomgroup -Members $randomuser
-        	Set-ADUser $randomuser -Description "Replication Account"
-        	Write-Info "Giving DCSync to : $randomuser"
-		Write-Info "$randomuser in $randomgroup"
-		$Global:CreatedUsers = $Global:CreatedUsers -ne $randomuser
+
+        Set-ADUser $randomuser -Description "Replication Account"
+        Write-Info "Giving DCSync to : $randomuser"
     }
 }
 function VulnAD-DisableSMBSigning {
