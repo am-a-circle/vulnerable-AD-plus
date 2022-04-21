@@ -18,16 +18,19 @@ Create a vulnerable active directory that's allowing you to test most of active 
 - Abuse DnsAdmins (...)
 - Password in AD User comment
 - Password Spraying
-- DCSync (...)
-- Silver Ticket (...)
-- Golden Ticket (...)
-- Pass-the-Hash (...)
-- Pass-the-Ticket (...)
+- DCSync 
+- Silver Ticket
+- Golden Ticket 
+- Pass-the-Hash 
+- Pass-the-Ticket 
 - SMB Signing Disabled
 - Bad WinRM permission
 - Anonymous LDAP query
 - Public SMB Share
 - Zerologon (Check version)
+
+To do:
+- DC Shadow 
 
 ### Writeup
 Now includes a writeup in the wiki section.
